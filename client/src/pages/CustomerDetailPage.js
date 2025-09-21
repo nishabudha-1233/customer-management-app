@@ -18,11 +18,11 @@ function CustomerDetailPage() {
 
   // Fetch customer + addresses
   useEffect(() => {
-    axios.get(`https://customer-management-app-zeta.vercel.app//api/customers/${id}`)
+    axios.get(`https://customer-management-app-zeta.vercel.app/api/customers/${id}`)
       .then(res => setCustomer(res.data))
       .catch(err => console.error(err));
 
-    axios.get(`https://customer-management-app-zeta.vercel.app//api/customers/${id}/addresses`)
+    axios.get(`https://customer-management-app-zeta.vercel.app/api/customers/${id}/addresses`)
       .then(res => setAddresses(res.data))
       .catch(err => console.error(err));
   }, [id]);
@@ -38,7 +38,7 @@ function CustomerDetailPage() {
     e.preventDefault();
     if (editingAddressId) {
       // Update existing address
-      axios.put(`https://customer-management-app-zeta.vercel.app//api/addresses/${editingAddressId}`, formData)
+      axios.put(`https://customer-management-app-zeta.vercel.app/api/addresses/${editingAddressId}`, formData)
         .then(res => {
           if (res.data.updated) {
             setAddresses(prev =>
@@ -54,7 +54,7 @@ function CustomerDetailPage() {
         .catch(err => console.error(err));
     } else {
       // Add new address
-      axios.post(`https://customer-management-app-zeta.vercel.app//api/customers/${id}/addresses`, formData)
+      axios.post(`https://customer-management-app-zeta.vercel.app/api/customers/${id}/addresses`, formData)
         .then(res => {
           setAddresses(prev => [...prev, res.data]);
           setFormData({ address_details: "", city: "", state: "", pin_code: "" });
@@ -78,7 +78,7 @@ function CustomerDetailPage() {
 
   // Delete address
   const handleDelete = (addressId) => {
-    axios.delete(`https://customer-management-app-zeta.vercel.app//api/addresses/${addressId}`)
+    axios.delete(`https://customer-management-app-zeta.vercel.app/api/addresses/${addressId}`)
       .then(res => {
         if (res.data.deleted) {
           setAddresses(prev => prev.filter(addr => addr.id !== addressId));

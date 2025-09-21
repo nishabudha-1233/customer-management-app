@@ -10,7 +10,7 @@ function CustomerForm({ customerId, onSuccess }) {
   // Fetch existing customer data if editing
   useEffect(() => {
     if (customerId) {
-      axios.get(`https://customer-management-app-zeta.vercel.app//api/customers/${customerId}`)
+      axios.get(`https://customer-management-app-zeta.vercel.app/api/customers/${customerId}`)
         .then(res => {
           setFirstName(res.data.first_name);
           setLastName(res.data.last_name);
@@ -30,12 +30,12 @@ function CustomerForm({ customerId, onSuccess }) {
 
     if (customerId) {
       // Update existing customer
-      axios.put(`https://customer-management-app-zeta.vercel.app//api/customers/${customerId}`, payload)
+      axios.put(`https://customer-management-app-zeta.vercel.app/api/customers/${customerId}`, payload)
         .then(() => onSuccess())
         .catch(err => console.error(err));
     } else {
       // Create new customer
-      axios.post(`https://customer-management-app-zeta.vercel.app//api/customers`, payload)
+      axios.post(`https://customer-management-app-zeta.vercel.app/api/customers`, payload)
         .then(() => onSuccess())
         .catch(err => console.error(err));
     }

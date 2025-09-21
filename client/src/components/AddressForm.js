@@ -9,7 +9,7 @@ function AddressForm({ customerId, onAdd }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`https://customer-management-app-zeta.vercel.app//api/customers/${customerId}/addresses`, {
+    axios.post(`https://customer-management-app-zeta.vercel.app/api/customers/${customerId}/addresses`, {
       street: addressDetails,
       city,
       state,
