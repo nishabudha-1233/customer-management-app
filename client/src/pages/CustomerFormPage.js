@@ -11,7 +11,7 @@ function CustomerFormPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/api/customers', {
+    axios.post('https://customer-management-app-zeta.vercel.app//api/customers', {
       first_name: firstName,
       last_name: lastName,
       phone_number: phone

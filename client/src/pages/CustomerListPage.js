@@ -7,7 +7,7 @@ function CustomerListPage() {
   const [customers, setCustomers] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/customers')
+    axios.get('https://customer-management-app-zeta.vercel.app//api/customers')
       .then(response => {
         setCustomers(response.data); // API returns { message, data }
       })
